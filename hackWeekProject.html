@@ -10,6 +10,13 @@
 
 //ADD DUMMY DATA YOU DUMMY
 //Hey there
+var locations = [
+['Girls Who Code', 37.5239915, -122.2553, 4],
+['Kelela', 21.645477, -157.926795, 5],
+['Cronulla Beach', -34.028249, 151.157507, 3],
+['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
+['Maroubra Beach', -33.950198, 151.259302, 1]
+];
 function initialize() {
 
 
@@ -156,31 +163,34 @@ function initialize() {
         ]
     }
 ]
-	var locations = [
-    ['Girls Who Code', 37.5239915, -122.2553, 4],
-    ['Kelela', 21.645477, -157.926795, 5],
-    ['Cronulla Beach', -34.028249, 151.157507, 3],
-    ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
-    ['Maroubra Beach', -33.950198, 151.259302, 1]
-    ];
+
     var infowindow = new google.maps.InfoWindow();
     var marker, i;
 
     for (i = 0; i < locations.length; i++) {  
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-        map: map
-      });
+          marker = new google.maps.Marker({
+            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+            map: map
+          });
 
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        return function() {
-          infowindow.setContent(locations[i][0]);
-          infowindow.open(map, marker);
+          google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+              infowindow.setContent(locations[i][0]);
+              infowindow.open(map, marker);
+            }
+          })(marker, i));
         }
-      })(marker, i));
+    map.setOptions({styles: styles});
     }
-map.setOptions({styles: styles});
-}
+    var addmarker=function(){
+        var ulat= $("#latitude").val()
+        var ulong= $("#longitude").val()
+        var udesc= $("#description").val()
+        locations.push([udesc, ulat, ulong])
+        initialize();
+        
+
+    }
 /*function addMarkers(){
 	var locations = [
     ['Bondi Beach', -33.890542, 151.274856, 4],
@@ -227,10 +237,27 @@ google.maps.event.addDomListener(window, 'load', initialize); //loads map when p
               <!--<li><a href="#anylink">Search</a></li>-->
             </ul>
         </div>
-</div>
-<div id="googleMap" style="width:500px;height:380px;"></div>
+    </div>
+    <div id="googleMap" style="width:500px;height:380px;">
+    </div>
 
-<h1>Our form here</h1>
+    <h1>Our form here</h1>
+
+    <div data-role="fieldcontain" class="ui-hide-label">
+        <label for="latitude">Latitude:</label>
+        <input type="text" name="latitude" id="latitude" value="" placeholder="Latitude"/>
+    </div>
+    <div data-role="fieldcontain" class="ui-hide-label">
+        <label for="longitude">Longitude:</label>
+        <input type="text" name="longitude" id="longitude" value="" placeholder="Longitude"/>
+    </div>
+    <div data-role="fieldcontain" class="ui-hide-label">
+        <label for="description">Description:</label>
+        <input type="text" name="description" id="description" value="" placeholder="Description"/>
+    </div>
+    <input type="button" value="Submit" data-theme="b" onclick="addmarker()">
+        </select>
+
 </div>
 <div data-role="page" id="pageTwo">
     <div data-role="header">
