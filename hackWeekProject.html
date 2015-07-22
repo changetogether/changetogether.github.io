@@ -30,6 +30,10 @@ function initialize() {
     };
     var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);//make the map a variable and puts it in "googleMap" element, adds the mapProp variable elements to it
 
+    google.maps.event.addListener(map, 'click', function(event) {
+        alert( 'Lat: ' + event.latLng.lat() + ' and Longitude is: ' + event.latLng.lng() );
+    });
+
     var styles=[
         {
             "featureType": "water",
