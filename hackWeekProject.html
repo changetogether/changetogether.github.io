@@ -197,6 +197,9 @@ function initialize() {
         var udesc= $("#description").val()
         locations.push([udesc, ulat, ulong])
         initialize();
+        $("#latitude").val("")
+        $("#longitude").val("")
+        $("#description").val("")
     }
 
 google.maps.event.addDomListener(window, 'load', initialize); //loads map when page loads
