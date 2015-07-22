@@ -204,6 +204,8 @@ google.maps.event.addDomListener(window, 'load', initialize); //loads map when p
     #pageOne, #pageTwo{background-image: url("background.png");}
     h1, p{
         color:#FFFFFF;
+        font-family: "Trebuchet MS", Helvetica, sans-serif;
+        text-shadow:2px 2px 4px #000000;
     }
 </style>
 
@@ -234,7 +236,7 @@ google.maps.event.addDomListener(window, 'load', initialize); //loads map when p
         <label for="description">Description:</label>
         <input type="text" name="description" id="description" value="" placeholder="Description"/>
     </div>
-    <input type="button" value="Submit" data-theme="b" onclick="addmarker()">
+    <input type="button" value="Submit" data-theme="b" data-inline="true" onclick="addmarker()">
         </select>
 
 </div>
