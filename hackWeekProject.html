@@ -31,7 +31,7 @@ function initialize() {
     var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);//make the map a variable and puts it in "googleMap" element, adds the mapProp variable elements to it
 
     google.maps.event.addListener(map, 'click', function(event) {
-        alert( 'Lat: ' + event.latLng.lat() + ' and Longitude is: ' + event.latLng.lng() );
+        alert( 'Latitude: ' + event.latLng.lat() + '\r\nLongitude: ' + event.latLng.lng() );
     });
 
     var styles=[
@@ -211,6 +211,9 @@ google.maps.event.addDomListener(window, 'load', initialize); //loads map when p
         font-family: "Trebuchet MS", Helvetica, sans-serif;
         text-shadow:2px 2px 4px #000000;
     }
+    p{
+        font-size: 25px
+    }
 </style>
 
 <div data-role="page" id="pageOne">
@@ -227,6 +230,7 @@ google.maps.event.addDomListener(window, 'load', initialize); //loads map when p
     </div>
 
     <h1>Is there an issue in your community that you want everyone to know about? Voice your opinion!</h1>
+    <p>To find a latitude and longitude, just click on a location on the map that you want the latitude and longitude for. Don't worry, you only need one decimal point!</p>
 
     <div data-role="fieldcontain" class="ui-hide-label">
         <label for="latitude">Latitude:</label>
