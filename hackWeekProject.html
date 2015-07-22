@@ -21,6 +21,14 @@
         ['Maroubra Beach', -33.950198, 151.259302, 1]
     ];
 
+    var allconvos = {"Girls Who Code":{"name":"Girls Who Code", "comments":[]},
+                   "Kelela":{"name":"ME", "comments":[]},
+                   "Cronulla Beach":{"name": "i am a beach", "comments":[]},
+                   "Manly Beach":{"name": "im manly", "comments":[]},
+                   "Maroubra Beach":{"name": "im another beach", "comments":[]},
+    };
+
+
 function initialize() {
 
     var mapProp = {
@@ -190,18 +198,30 @@ function initialize() {
             })(marker, i));
         }
         map.setOptions({styles: styles});
+        createConversations();
     }
     var addmarker=function(){
-        var ulat= $("#latitude").val()
-        var ulong= $("#longitude").val()
-        var udesc= $("#description").val()
-        locations.push([udesc, ulat, ulong])
+        var ulat= $("#latitude").val();
+        var ulong= $("#longitude").val();
+        var udesc= $("#description").val();
+        locations.push([udesc, ulat, ulong]);
+        allconvos[udesc]={"name":udesc, "comments":[]};
         initialize();
-        $("#latitude").val("")
-        $("#longitude").val("")
-        $("#description").val("")
+        $("#latitude").val("");
+        $("#longitude").val("");
+        $("#description").val("");
+        
     }
 
+    var createConversations=function() {
+        $("#conversations").html('')
+        for (item in allconvos) {
+            var currentconvo=allconvos[item]
+            var title=currentconvo["name"]
+            var htmlstring = '<div id =' + title + ' class="convobox">'+title+' <div>'
+            $("#conversations").append(htmlstring) 
+        }
+    }
 google.maps.event.addDomListener(window, 'load', initialize); //loads map when page loads
 
 </script>
@@ -264,9 +284,8 @@ google.maps.event.addDomListener(window, 'load', initialize); //loads map when p
         </div>
     </div>
     <div data-role="content">
-        <p>
-            BOOM TWO PAGES!
-        </p>
+        <div id = "conversations">
+        </div>
 </div>
 
 <script>
