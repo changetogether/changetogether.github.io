@@ -14,6 +14,7 @@
 
     var fireBaseUrl = 'http://boiling-fire-5055.firebaseIO.com/';
     var myDataRef = new Firebase(fireBaseUrl);
+    var map=0;
 //ADD DUMMY DATA YOU DUMMY
 //Hey there
     var locations = [
@@ -38,7 +39,7 @@ function initialize() {
         zoom:4, //the amount of zoom
         mapTypeId:google.maps.MapTypeId.ROADMAP //sets up the map
     };
-    var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);//make the map a variable and puts it in "googleMap" element, adds the mapProp variable elements to it
+    map=new google.maps.Map(document.getElementById("googleMap"),mapProp);//make the map a variable and puts it in "googleMap" element, adds the mapProp variable elements to it
 
     google.maps.event.addListener(map, 'click', function(event) {
         $("#latitude").val(event.latLng.lat())
@@ -187,7 +188,7 @@ function initialize() {
 
     var marker, i;
 
-    for (i = 0; i < locations.length; i++) {  
+    /*for (i = 0; i < locations.length; i++) {  
             marker = new google.maps.Marker({
                 position: new google.maps.LatLng(locations[i][1], locations[i][2]), map: map
             });
@@ -198,22 +199,65 @@ function initialize() {
                     infowindow.open(map, marker);
                 }
             })(marker, i));
-        }
-        map.setOptions({styles: styles});
-        createConversations();
-    }
+    }*/
+    map.setOptions({styles: styles});
+    createConversations();
+}
     var addmarker=function(){
         var ulat= $("#latitude").val();
         var ulong= $("#longitude").val();
         var udesc= $("#description").val();
-        locations.push([udesc, ulat, ulong]);
-        allconvos[udesc]={"name":udesc, "comments":[]};
-        initialize();
+        var dataRefAddress = fireBaseUrl + "/" + udesc;
+        var itemDataRef = new Firebase(dataRefAddress);
+        var item = {name: udesc, latitude: ulat, longitude: ulong, comments:["Let's talk about it!"]}
+        itemDataRef.set(item);
+        //initialize();
         $("#latitude").val("");
         $("#longitude").val("");
-        $("#description").val("");
-        
+        $("#description").val("");   
     }
+
+    myDataRef.on('child_added', function(snapshot){
+        console.log("adding stuff")
+        var item=snapshot.val();
+        marker = new google.maps.Marker({
+                position: new google.maps.LatLng(item["latitude"], item["longitude"]), map: map
+            });
+
+            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                return function() {
+                    infowindow.setContent(item["name"]);
+                    infowindow.open(map, marker);
+                }
+            })(marker, i));
+    });
+/*var addmarker=function(){
+        var ulat= $("#latitude").val();
+        var ulong= $("#longitude").val();
+        var udesc= $("#description").val();
+        var dataRefAddress = fireBaseUrl + "/" + udesc;
+        var itemDataRef = new Firebase(dataRefAddress);
+        var item = {name: udesc, latitude: ulat, longitude: ulong, comments:["Let's talk about it!"]}
+        itemDataRef.set(item);
+        //initialize();
+        $("#latitude").val("");
+        $("#longitude").val("");
+        $("#description").val("");   
+    }
+
+    myDataRef.on('child_added', function(snapshot){
+        var item=snapshot.val();
+        marker = new google.maps.Marker({
+                position: new google.maps.LatLng(item["latitude"], item["longitude"]), map: map
+            });
+
+            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                return function() {
+                    infowindow.setContent(item["name"]);
+                    infowindow.open(map, marker);
+                }
+            })(marker, i));
+    });*/
 //clears current convo boxes and adds all of them into the same space again
 //the <br> helps to keep the individual convos separated
     var createConversations=function() {
