@@ -277,12 +277,23 @@ google.maps.event.addDomListener(window, 'load', initialize); //loads map when p
     }
 
     var addcomment=function(convotoaddto, convocommentid){
-        var convocommentidfinal="#commentcontent"+convocommentid; //adds #commentcontent so it will be equal to the "specialcommentcontentid" in the last function and only affect that area
-        var ucomment=$(convocommentidfinal).val(); //creates a variable for what is inside of the text area
-        if (ucomment!=""){ //only adds comment if the comment box has text in it, AKA not undefined
-            allconvos[convotoaddto]["comments"].push(ucomment); //adds comment to that conversation's comment list
-            expandconvo(convotoaddto, convocommentid); //calls expand convo again in order to kind of "refresh" the comment area
-        }
+        var dataRefAddress = fireBaseUrl + "/" + convotoaddto;
+        var dataRef = new Firebase(dataRefAddress);
+        var convocommentid="#commentcontent"+convocommentid
+        var ucomment=$(convocommentid).val();
+        $(convocommentid).val("");
+        dataRef.once('value', function(snapshot){
+                console.log("snapshot in ad Comments" + JSON.stringify(snapshot.val()));
+                var oldData= snapshot.val();  //this the entire item, including the name, points, and comments
+                var oldComments = oldData["comments"]; //get the old comments out of the snapshot and store in oldComments, which is just a regular old javascript array
+                if(ucomment!=""){
+                    oldComments.push(ucomment); //NOT a firebase push, it's a normal javascript push to an array
+                    var updatedComments = oldComments;
+                    var commentsRefAddress = dataRefAddress + "/comments"; //set up a new dataref to the comments for this item
+                    var commentsRef = new Firebase(commentsRefAddress);
+                    commentsRef.set(updatedComments, alert("comment added"));
+                } //use the comments dataref, and set to the updatedComments array
+            })
     }
 
 </script>
