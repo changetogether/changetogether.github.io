@@ -7,7 +7,7 @@
     <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
     <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
     <link rel='shortcut icon' type='image/icon' href='favicon.ico' />
-    <title>Let's Talk!</title>
+    <title>Change Together</title>
     <script src="http://maps.googleapis.com/maps/api/js"></script>
 
     <script>
@@ -168,8 +168,6 @@ function initialize() {
         }
     ]
 
-    
-
     map.setOptions({styles: styles});
     //createConversations();
 }
@@ -290,7 +288,7 @@ google.maps.event.addDomListener(window, 'load', initialize); //loads map when p
 <body>
 
 <style>
-    #mappage, #convopage{background-image: url("background.png");}
+    #mappage, #convopage, #resources{background-image: url("background.png");}
     h1, p{
         color:#FFFFFF;
         font-family: "Trebuchet MS", Helvetica, sans-serif;
@@ -303,6 +301,17 @@ google.maps.event.addDomListener(window, 'load', initialize); //loads map when p
         background: rgba(255, 255, 255, 0.5);
         text-align: center;
     }
+    #takeAction {
+        color:#FFFFFF;
+        font-family: "Trebuchet MS", Helvetica, sans-serif;
+        text-shadow:2px 2px 4px #000000;
+        font-size: 50px;
+    }  
+    #checkItOut {
+        color:#FFFFFF;
+        font-family: "Trebuchet MS", Helvetica, sans-serif;
+        text-shadow:2px 2px 4px #000000;
+    }
 </style>
 
 <div data-role="page" id="mappage">
@@ -311,6 +320,7 @@ google.maps.event.addDomListener(window, 'load', initialize); //loads map when p
             <ul>    
               <li><a href="#mappage">Map of Our Issues</a></li>
               <li><a href="#convopage">Conversations</a></li>
+              <li><a href="#resources">Take Action!</a></li>
               <!--<li><a href="#anylink">Search</a></li>-->
             </ul>
         </div>
@@ -343,6 +353,7 @@ google.maps.event.addDomListener(window, 'load', initialize); //loads map when p
             <ul>    
               <li><a href="#mappage">Map of Our Issues</a></li>
               <li><a href="#convopage">Conversations</a></li>
+              <li><a href="#resources">Take Action!</a></li>
               <!--<li><a href="#anylink">Search</a></li>-->
             </ul>
         </div>
@@ -350,6 +361,24 @@ google.maps.event.addDomListener(window, 'load', initialize); //loads map when p
     <div data-role="content">
         <div id = "conversations" align="center">
         </div>
+    </div>
+</div>
+
+<div data-role="page" id="resources">
+    <div data-role="header">
+        <div data-role="navbar">
+            <ul>    
+              <li><a href="#mappage">Map of Our Issues</a></li>
+              <li><a href="#convopage">Conversations</a></li>
+              <li><a href="#resources">Take Action!</a></li>
+              <!--<li><a href="#anylink">Search</a></li>-->
+            </ul>
+        </div>
+    </div>
+    <div data-role="content">
+        <div id="takeAction" align="center">Take Action!</div>
+        <div id="checkItOut" align="center">Check out these resources to help you create REAL change to the issues in your community.</div>
+    </div>
 </div>
 
 <script>
@@ -363,5 +392,5 @@ document.getElementById("googleMap").style.height=screenheight+"px";
 </body>
 
 
-
+   
 </html>
