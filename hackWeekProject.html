@@ -296,6 +296,10 @@ google.maps.event.addDomListener(window, 'load', initialize); //loads map when p
         font-family: "Trebuchet MS", Helvetica, sans-serif;
         text-shadow:2px 2px 4px #000000;
     }
+    #resources{
+        padding-bottom: 20%;
+    }
+
     p{
         font-size: 25px
     }
@@ -318,13 +322,26 @@ google.maps.event.addDomListener(window, 'load', initialize); //loads map when p
         position: relative;
         top:50px;
         margin: 0 auto;
-        width: 70%;
+        width: 65%;
     }
 
     .columns{
         float: left;
-        margin: 0;
-        width: 32%
+        margin: 1%;
+        width: 30%
+    }
+
+    .resourceTitle {
+        color:#FFFFFF;
+        font-family: "Trebuchet MS", Helvetica, sans-serif;
+        text-shadow:2px 2px 4px #000000;
+        font-size: 20px;
+    }
+
+    .resourceDescription {
+        color:#FFFFFF;
+        font-family: "Trebuchet MS", Helvetica, sans-serif;
+        font-size: 16px;
     }
 
 </style>
@@ -396,33 +413,56 @@ google.maps.event.addDomListener(window, 'load', initialize); //loads map when p
     </div>
     <div id="actioncontent">
         <div class="columns">
-            <img src = "change.png" alt = "change.org" width = 150px height = 150px>
-            <div> Change.org </div>
-            <div>Enable change with anyone, anywhere by starting a petition, mobilizing support, and winning change in any platform, from local concerns to global issues.</div>
+            <a href = "https://www.change.org/"><img src = "change.png" alt = "change.org" width = 150px height = 150px></a>
+            <div class="resourceTitle"> Change.org </div>
+            <div class="resourceDescription">Enable change with anyone, anywhere by starting a petition, mobilizing support, and winning change in any platform, from local concerns to global issues.</div>
+            <br>
+            <br>
+            <a href = "https://www.indiegogo.com/"><img src = "indiegogo.jpg" alt = "Indiegogo" width = 150px height = 150px></a>
+            <div class="resourceTitle"> Indiegogo </div>
+            <div class="resourceDescription">This is the largest site for fundraisers, especially ones led by individuals, groups, and non-profits. Make your ideas of social change become a reality! </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <a href = "http://www.suicidepreventionlifeline.org/"><img src = "http://www.suicidepreventionlifeline.org/images/GetInvolved/Logos/NSPL_Logo.jpg" alt = "Indiegogo" width = 150px height = 150px></a>
+            <div class="resourceTitle">National Suicide Prevention Hotline </div>
+            <div class="resourceDescription">Need a professional opinion on suicide prevention? Go to this site to find the national suicide prevention hotline and more info. </div>
         </div>
 
         <div class="columns"> 
-            <img src = "kickstarter.png" alt = "Kickstarter.com" width = 150px height = 150px>
-            <div> Kickstarter.com </div>
-            <div>Use the world's largest funding platform to fund any program/projects you want to create to make change in your community.</div>
+            <a href = "https://www.kickstarter.com/"><img src = "kickstarter.png" alt = "Kickstarter.com" width = 150px height = 150px></a>
+            <div class="resourceTitle"> Kickstarter.com </div>
+            <div class="resourceDescription">Use the world's largest funding platform to fund any program/projects you want to create to make change in your community.</div>
+            <br>
+            <br>
+            <br>
+            <a href = "http://www.socialgoodfund.org/"><img src = "sg-new-logo.png" alt = "Social Good Fund" width = 150px height = 150px></a>
+            <div class="resourceTitle"> Social Good Fund </div>
+            <div class="resourceDescription">Use Social Good Fund to create and establish positive influences and find sponsorship to develop projects that will positively impact your community.</div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <a href = "http://www.thehotline.org/"><img src = "http://texaslawhelp.org/files/685E99A9-A3EB-6584-CA74-137E0474AE2C/images/national-domestic-violence-hotline-logo.jpg" alt = "National Domestic Violence Hotline" width = 150px height = 150px></a>
+            <div class="resourceTitle"> National Domestic Violence </div>
+            <div class="resourceDescription">Visit the National Domestic Violence website to learn more about domestic violence and what you can do to help people in your community who have this problem.</div>
         </div>
 
         <div class="columns"> 
-            <img src = "usa.png" alt = "usa.gov" width = 150px height = 150px>
-            <div> USA.gov </div>
-            <div>If you live in the U.S., find and contact your representatives in your town, county, or state and let them know your concerns about issues in your community.</div>
-        </div>
-
-        <div class="columns"> 
-            <img src = "sg-new-logo.png" alt = "Social Good Fund" width = 150px height = 150px>
-            <div> Social Good Fund </div>
-            <div>Use Social Good Fund to create and establish positive influences and find sponsorship to develop projects that will positively impact your community.</div>
-        </div>
-
-        <div class="columns"> 
-            <img src = "Do-something2-500x350.png" alt = "DoSomething.org" width = 150px height = 150px>
-            <div> DoSomething.org </div>
-            <div>Use Social Good Fund to create and establish positive influences and find sponsorship to develop projects that will positively impact your community.</div>
+            <a href = "https://www.usa.gov/elected-officials"><img src = "usa.png" alt = "usa.gov" width = 150px height = 150px></a>
+            <div class="resourceTitle"> USA.gov </div>
+            <div class="resourceDescription">If you live in the U.S., find and contact your representatives in your town, county, or state and let them know your concerns about issues in your community.</div>
+            <br>
+            <br>
+            <a href = "https://www.dosomething.org/"><img src = "Do-something2-500x350.png" alt = "DoSomething.org" width = 150px height = 150px></a>
+            <div class="resourceTitle"> DoSomething.org </div>
+            <div class="resourceDescription">Want to take action but don't know what to do? Do Something is non-profit organization who creates national campaigns that teens around the country can join, create change in their communities. </div>
+            <br>
+            <br>
+            <a href = "https://www.movements.org/"><img src = "https://pbs.twimg.com/profile_images/478585720160784384/YHI0X480.jpeg" alt = "Movements.org" width = 150px height = 150px></a>
+            <div class="resourceTitle"> Movements </div>
+            <div class="resourceDescription">Movements.org is a platform that helps people everywhere protect their basic freedoms. Join the Movement! </div>
         </div>
     </div>
 
