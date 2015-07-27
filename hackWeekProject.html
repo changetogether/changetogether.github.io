@@ -257,10 +257,18 @@ google.maps.event.addDomListener(window, 'load', initialize); //loads map when p
     var expandconvo=function(convocommentid){
         convocommentid="#"+convocommentid;
         var commentarea = $(convocommentid);
-
-        for(var i = 0; i < commentarea.length; i = i + 1) {
+        var i=0
+        if (commentarea[i].style.display=="none"){
+            for(var i = 0; i < commentarea.length; i = i + 1) {
             commentarea[i].style.display="inline";
+            }
         }
+        else{
+            for(var i = 0; i < commentarea.length; i = i + 1) {
+            commentarea[i].style.display="none";
+            }
+        }
+        
 
     }
 
