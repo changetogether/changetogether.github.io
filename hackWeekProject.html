@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
     <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
     <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
     <link rel='shortcut icon' type='image/icon' href='favicon.ico' />
+    <link rel = "stylesheet" type = "text/css" href = "hackWeekProject.css">
     <title>Change Together</title>
     <script src="http://maps.googleapis.com/maps/api/js"></script>
 
@@ -288,6 +289,7 @@ google.maps.event.addDomListener(window, 'load', initialize); //loads map when p
 <body>
 
 <style>
+
     #mappage, #convopage, #resources{background-image: url("background.png");}
     h1, p{
         color:#FFFFFF;
@@ -312,6 +314,19 @@ google.maps.event.addDomListener(window, 'load', initialize); //loads map when p
         font-family: "Trebuchet MS", Helvetica, sans-serif;
         text-shadow:2px 2px 4px #000000;
     }
+    #actioncontent {
+        position: relative;
+        top:50px;
+        margin: 0 auto;
+        width: 70%;
+    }
+
+    .columns{
+        float: left;
+        margin: 0;
+        width: 32%
+    }
+
 </style>
 
 <div data-role="page" id="mappage">
@@ -379,6 +394,38 @@ google.maps.event.addDomListener(window, 'load', initialize); //loads map when p
         <div id="takeAction" align="center">Take Action!</div>
         <div id="checkItOut" align="center">Check out these resources to help you create REAL change to the issues in your community.</div>
     </div>
+    <div id="actioncontent">
+        <div class="columns">
+            <img src = "change.png" alt = "change.org" width = 150px height = 150px>
+            <div> Change.org </div>
+            <div>Enable change with anyone, anywhere by starting a petition, mobilizing support, and winning change in any platform, from local concerns to global issues.</div>
+        </div>
+
+        <div class="columns"> 
+            <img src = "kickstarter.png" alt = "Kickstarter.com" width = 150px height = 150px>
+            <div> Kickstarter.com </div>
+            <div>Use the world's largest funding platform to fund any program/projects you want to create to make change in your community.</div>
+        </div>
+
+        <div class="columns"> 
+            <img src = "usa.png" alt = "usa.gov" width = 150px height = 150px>
+            <div> USA.gov </div>
+            <div>If you live in the U.S., find and contact your representatives in your town, county, or state and let them know your concerns about issues in your community.</div>
+        </div>
+
+        <div class="columns"> 
+            <img src = "sg-new-logo.png" alt = "Social Good Fund" width = 150px height = 150px>
+            <div> Social Good Fund </div>
+            <div>Use Social Good Fund to create and establish positive influences and find sponsorship to develop projects that will positively impact your community.</div>
+        </div>
+
+        <div class="columns"> 
+            <img src = "Do-something2-500x350.png" alt = "DoSomething.org" width = 150px height = 150px>
+            <div> DoSomething.org </div>
+            <div>Use Social Good Fund to create and establish positive influences and find sponsorship to develop projects that will positively impact your community.</div>
+        </div>
+    </div>
+
 </div>
 
 <script>
